@@ -21,3 +21,16 @@ To maintain the work-life balance of  a working individual, we introduce  our pr
 -> NO EXCUSES ALSO GIVE THE USER THE WORKOUT PLAN HE/HER SHOULD PERFORM EVERY DAY.
 
 -> OUR APP WILL HELP EVERY USER TO MAINTAIN THEIR WORK-LIFE BALANCE WHICH IN TURN WILL HELP KEEP  EVERY USER HAPPY AND STRESS-FREE.
+
+## User Needs
+1. We've interacted with a lot of people around us and also in our own families and we got to know about  their degraded lifestyles because of their low-level of work-life balance. Many complained that they don't  have any such kind of app which can give them their customized diet chart according to their work-life  balance score.
+
+2. In the market, there are abundant apps available that provide the user with diet charts according to their  BMI but they aren't accurate and perfect.
+
+3. Hence we are here presenting our app named NO EXCUSES which will take the input of the user in the  form of a questionnaire and give them their work-life balance score.
+
+4. According to the score, our app will provide customized diet chart and some of the physical exercises the  user should perform every day.
+
+5. Keeping the needs of the people in mind we've also introduced the recipes along with the diet chart. Even  if you don't like one recipe you get a variety of other options 😉.
+
+6. Well, our app mostly is for working individuals between the age of 22 to 40 but it may be used by people  of every age group. Students can find our app very helpful as it'll help them maintain a proper diet.
