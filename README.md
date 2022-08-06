@@ -3,6 +3,8 @@
 Figma design file: https://www.figma.com/file/tlmMbhZfi7sOqjiEXeSjy0/NO-EXCUSES?node-id=0%3A1
 <br />
 Testing ML Model : [Link](https://no-excuses-api.herokuapp.com/?FRUITS_VEGGIES=5&DAILY_STRESS=2&PLACES_VISITED=1&CORE_CIRCLE=2&SUPPORTING_OTHERS=10&SOCIAL_NETWORK=10&ACHIEVEMENT=5&DONATION=1&BMI_RANGE=3&TODO_COMPLETED=7&FLOW=4&DAILY_STEPS=1&LIVE_VISION=5&SLEEP_HOURS=8&LOST_VACATION=5&DAILY_SHOUTING=2&SUFFICIENT_INCOME=3&PERSONAL_AWARDS=1&TIME_FOR_PASSION=8&WEEKLY_MEDITATION=3&GENDER=0)
+<br />
+Video : [Link](https://drive.google.com/file/d/17Bj1icONt-W49Vq3aD09iMAw8WVL2DkF/view?usp=sharing)
 
 ## Vision
 To maintain the work-life balance of  a working individual, we introduce  our product, NO EXCUSES which will  help an individual to check and  maintain his/her balance between  their professional and personal lives.
