@@ -34,3 +34,10 @@ To maintain the work-life balance of  a working individual, we introduce  our pr
 5. Keeping the needs of the people in mind we've also introduced the recipes along with the diet chart. Even  if you don't like one recipe you get a variety of other options 😉.
 
 6. Well, our app mostly is for working individuals between the age of 22 to 40 but it may be used by people  of every age group. Students can find our app very helpful as it'll help them maintain a proper diet.
+
+## Future Goals
+# INTRODUCING A PERSONALISED CALORIE TRACKER
+A calorie tracker can make logging food and activity quick and easy. They also can give you insight into lifestyle  habits, nutrient quality, meal timing, and how often you’re meeting your daily goals. Plus, it'll replace the old-school  paper and pencil method of logging calories, which can be more difficult to maintain.
+# ADDING AN ACTIVITY TRACKER
+We will also introduce an activity tracker which helps in keeping track of your progress, setting achievable goals,  Monitoring your health, Helps you to stay motivated.
+
