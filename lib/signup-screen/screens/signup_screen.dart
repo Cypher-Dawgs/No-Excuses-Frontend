@@ -1,19 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:no_excuses/home_screen/home_screen.dart';
 import 'package:no_excuses/palette.dart';
+import 'package:no_excuses/providers/provider.dart';
 import 'package:no_excuses/questions-screen/questions_screen.dart';
 import 'package:no_excuses/signup-screen/screens/login_screen.dart';
+import 'package:http/http.dart' as http;
+import 'package:provider/provider.dart';
 
-class HomeScreen extends StatefulWidget {
+class SignUp extends StatefulWidget {
   static const routeName = "/homescreen";
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<SignUp> createState() => _SignUpState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _SignUpState extends State<SignUp> {
   final TextEditingController nameController = new TextEditingController();
   final TextEditingController emailController = new TextEditingController();
   final TextEditingController passwordController = new TextEditingController();
+
+  bool isVisible = false;
+
+  Future<void> signUp() async {
+    if (nameController.text == "") return;
+    String url = "http://192.168.56.1:8001/api/user/create-user";
+    final response = await http.post(Uri.parse(url), body: {
+      "name": nameController.text,
+      "email": emailController.text,
+      "password": passwordController.text,
+      "confirmPassword": passwordController.text,
+    });
+    print(response.body);
+    Provider.of<Data>(context, listen: false).email = emailController.text;
+    Provider.of<Data>(context, listen: false).username = nameController.text;
+    Navigator.of(context).pushReplacementNamed(QuestionsScreen.routeName);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -94,7 +116,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           elevation: MaterialStateProperty.all(0),
                         ),
                         onPressed: () {
-                          Navigator.of(context).pushReplacementNamed(QuestionsScreen.routeName);
+                          signUp();
                         },
                         child: Text(
                           "Sign Up",
@@ -201,6 +223,11 @@ class _HomeScreenState extends State<HomeScreen> {
             Expanded(
               // width: 100,
               child: TextField(
+                obscureText: isPassword
+                    ? isVisible
+                        ? false
+                        : true
+                    : false,
                 controller: controller,
                 style: TextStyle(
                   fontFamily: "Poppins",
@@ -218,7 +245,15 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             Spacer(),
-            isPassword ? Image.asset("assets/images/passwordVisibility.png") : SizedBox(),
+            isPassword
+                ? GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        isVisible = !isVisible;
+                      });
+                    },
+                    child: Image.asset("assets/images/passwordVisibility.png"))
+                : SizedBox(),
           ],
         ),
       ),

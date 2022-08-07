@@ -1,5 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:no_excuses/home_screen/home_screen.dart';
+import 'package:http/http.dart' as http;
 import 'package:no_excuses/palette.dart';
+import 'package:no_excuses/providers/provider.dart';
+import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
   static const routeName = "/login";
@@ -11,6 +17,24 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController emailController = new TextEditingController();
   final TextEditingController passwordController = new TextEditingController();
+
+  bool isVisible = false;
+
+  Future<void> signIn() async {
+    if (emailController.text == "") return;
+    String url = "http://192.168.56.1:8001/api/user/sign-in";
+    final response = await http.post(Uri.parse(url), body: {
+      "email": emailController.text,
+      "password": passwordController.text,
+    });
+    print(response.body);
+    Provider.of<Data>(context, listen: false).score = json.decode(response.body)["user"]["score"];
+    Provider.of<Data>(context, listen: false).token = json.decode(response.body)["token"];
+    Provider.of<Data>(context, listen: false).username = json.decode(response.body)["user"]["fullname"];
+    Provider.of<Data>(context, listen: false).email = json.decode(response.body)["user"]["email"];
+    Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,7 +105,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           )),
                           elevation: MaterialStateProperty.all(0),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          signIn();
+                        },
                         child: Text(
                           "Login",
                           style: TextStyle(
@@ -187,6 +213,11 @@ class _LoginScreenState extends State<LoginScreen> {
             Expanded(
               // width: 100,
               child: TextField(
+                obscureText: isPassword
+                    ? isVisible
+                        ? false
+                        : true
+                    : false,
                 controller: controller,
                 style: TextStyle(
                   fontFamily: "Poppins",
@@ -204,7 +235,15 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
             Spacer(),
-            isPassword ? Image.asset("assets/images/passwordVisibility.png") : SizedBox(),
+            isPassword
+                ? GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        isVisible = !isVisible;
+                      });
+                    },
+                    child: Image.asset("assets/images/passwordVisibility.png"))
+                : SizedBox(),
           ],
         ),
       ),

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+
 import 'package:no_excuses/palette.dart';
 import 'package:no_excuses/signup-screen/screens/signup_screen.dart';
 
@@ -10,7 +11,7 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Timer(const Duration(seconds: 3), () {
-      Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
+      Navigator.of(context).pushReplacementNamed(SignUp.routeName);
     });
     return Scaffold(
       backgroundColor: bgColor,
